@@ -1,5 +1,6 @@
 import { CommandInteraction, Client, Interaction } from "discord.js";
 import pingCommand from './commands/ping';
+import derive from './commands/derive';
 
 export default (client: Client): void => {
     client.on("interactionCreate", async (interaction: Interaction) => {
@@ -12,6 +13,10 @@ const handleSlashCommand = async (client: Client, interaction: CommandInteractio
 
     if (interaction.commandName === 'ping') {
         pingCommand(interaction);
+    }
+
+    if (interaction.commandName === 'derive') {
+        derive(interaction);
     }
 
 }; 
